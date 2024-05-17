@@ -7,6 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import {Component} from "react";
+import {Column} from "./resource/column";
 
 class App extends Component {
 
@@ -16,44 +17,61 @@ class App extends Component {
         this.state = {
             users: []
         }
+
+        this.loadConfig();
+    }
+
+    loadConfig() {
+
+        let column1 = new Column("A", "A", 'left', (value) => value.toLocaleString('en-US'));
+
+        this.columns = [];
+        this.columns.push(column1);
     }
 
     componentDidMount()
     {
-        this.setState({users: ["A", "B"]})
+        this.setState({users: ["A", "B", "A", "B", "A", "B", "A", "B", "A", "B", "A", "B", "A", "B", "A", "B", "A", "B", "A", "B", "A", "B"]})
     }
 
     render(){
     return(
-        <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                <TableHead>
-                    <TableRow>
-                        <TableCell>Dessert (100g serving)</TableCell>
-                        <TableCell align="right">Calories</TableCell>
-                        <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                        <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                        <TableCell align="right">Protein&nbsp;(g)</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {this.state.users.map((row) => (
-                        <TableRow
-                            key={row}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                        >
-                            <TableCell component="th" scope="row">
-                                {row}
-                            </TableCell>
-                            <TableCell align="right">{row}</TableCell>
-                            <TableCell align="right">{row}</TableCell>
-                            <TableCell align="right">{row}</TableCell>
-                            <TableCell align="right">{row}</TableCell>
+        <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+            <TableContainer sx={{ maxHeight: window.innerHeight }}>
+                <Table stickyHeader aria-label="sticky table">
+                    <TableHead>
+                        <TableRow>
+                            {this.columns.map((column) => (
+                                <TableCell
+                                    key={column.id}
+                                    align={column.align}>
+                                    {column.label}
+                                </TableCell>
+                            ))}
                         </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
+                    </TableHead>
+                    <TableBody>
+                        {this.state.users
+                            .map((row) => {
+                                return (
+                                    <TableRow hover role="checkbox" tabIndex={-1} key={row}>
+                                        {this.columns.map((column) => {
+                                            const value = row;
+                                            return (
+                                                <TableCell key={column.id} align={column.align}>
+                                                    {column.format && typeof value === 'number'
+                                                        ? column.format(value)
+                                                        : value}
+                                                </TableCell>
+                                            );
+                                        })}
+                                    </TableRow>
+                                );
+                            })}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </Paper>
     );
   }
 }
