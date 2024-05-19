@@ -1,0 +1,15 @@
+.box {
+    display: flex;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    margin-right: 15px
+}
+
+.list-item {
+    background: rgba(30, 125, 204, 0.15);
+    border-left: 5px solid rgb(30, 125, 204);
+    margin-top: -5px;
+}

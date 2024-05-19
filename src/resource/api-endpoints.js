@@ -1,0 +1,1 @@
+export const loadBooksUrl = `https://fa5xpur6qlbxgj3khfvfrarxxq0jiwem.lambda-url.eu-north-1.on.aws/`

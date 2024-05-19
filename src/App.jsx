@@ -1,77 +1,38 @@
 import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 import {Component} from "react";
-import {Column} from "./resource/column";
+import {Header} from "./component/header";
+import {Grid} from "@mui/material";
+import {SideBar} from "./component/side-bar";
+import BookTable from "./component/book-table";
+import Toolbar from "@mui/material/Toolbar";
+import Divider from "@mui/material/Divider";
+import {Footer} from "./component/footer";
 
 class App extends Component {
 
     constructor(props, context)
     {
         super(props, context);
-        this.state = {
-            users: []
-        }
-
-        this.loadConfig();
-    }
-
-    loadConfig() {
-
-        let column1 = new Column("A", "A", 'left', (value) => value.toLocaleString('en-US'));
-
-        this.columns = [];
-        this.columns.push(column1);
-    }
-
-    componentDidMount()
-    {
-        this.setState({users: ["A", "B", "A", "B", "A", "B", "A", "B", "A", "B", "A", "B", "A", "B", "A", "B", "A", "B", "A", "B", "A", "B"]})
     }
 
     render(){
     return(
-        <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-            <TableContainer sx={{ maxHeight: window.innerHeight }}>
-                <Table stickyHeader aria-label="sticky table">
-                    <TableHead>
-                        <TableRow>
-                            {this.columns.map((column) => (
-                                <TableCell
-                                    key={column.id}
-                                    align={column.align}>
-                                    {column.label}
-                                </TableCell>
-                            ))}
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {this.state.users
-                            .map((row) => {
-                                return (
-                                    <TableRow hover role="checkbox" tabIndex={-1} key={row}>
-                                        {this.columns.map((column) => {
-                                            const value = row;
-                                            return (
-                                                <TableCell key={column.id} align={column.align}>
-                                                    {column.format && typeof value === 'number'
-                                                        ? column.format(value)
-                                                        : value}
-                                                </TableCell>
-                                            );
-                                        })}
-                                    </TableRow>
-                                );
-                            })}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </Paper>
+        <div>
+            <Header/>
+            <Grid container sx ={{height: window.innerHeight - 50}}>
+                <Grid item xs={1.5}>
+                    <SideBar/>
+                </Grid>
+                <Grid item xs={6.5}>
+                    <Toolbar/>
+                    <BookTable/>
+                    <Toolbar/>
+                </Grid>
+                <Grid item xs={4}>
+                    <p></p>
+                </Grid>
+            </Grid>
+        </div>
     );
   }
 }
