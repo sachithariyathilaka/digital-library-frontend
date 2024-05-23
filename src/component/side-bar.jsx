@@ -32,7 +32,7 @@ export class SideBar extends Component {
 
     render() {
         return (
-            <Box className = 'box'>
+            <Box className = {'box'}>
                 <Drawer
                     sx = {{
                         width: window.innerWidth * 1.5/12,
@@ -45,14 +45,14 @@ export class SideBar extends Component {
                     variant="permanent"
                     anchor="left">
                     <Toolbar>
-                        <img src={'logo192.png'} className = "logo" alt='Digital Library Logo'/>
+                        <img src={'logo192.png'} className = {"logo"} alt='Digital Library Logo'/>
                         <Typography variant="h4" noWrap component="div">Digital Library</Typography>
                     </Toolbar>
                     <Divider />
                     <List sx = {{height: window.innerHeight - 80}}>
                         {this.state.items
                             .map((text, index) => (
-                            <ListItem key={text} disablePadding className = 'list-item'>
+                            <ListItem className = {'list-item'} key={text} disablePadding>
                                 <ListItemButton>
                                     <ListItemIcon>
                                         <LibraryBooksIcon/>

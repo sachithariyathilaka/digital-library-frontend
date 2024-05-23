@@ -9,9 +9,6 @@
 }
 
 .list-item {
-    color: #212121 !important;
-    font-size: 14px !important;
-    font-weight: 400 !important;
     background: rgba(30, 125, 204, 0.15);
     border-left: 5px solid rgb(30, 125, 204);
     margin-top: -5px;
