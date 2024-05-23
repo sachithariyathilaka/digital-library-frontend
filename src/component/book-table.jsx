@@ -10,7 +10,6 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 import * as React from "react";
-import {Header} from "./header";
 
 class BookTable extends Component {
 
@@ -31,7 +30,7 @@ class BookTable extends Component {
         this.columns.push(new Column("origin", "Origin", 'left', (value) => value.toLocaleString('en-US')));
         this.columns.push(new Column("quantity", "Quantity", 'left', (value) => value.toLocaleString('en-US')));
         this.columns.push(new Column("version", "Version", 'left', (value) => value.toLocaleString('en-US')));
-        this.columns.push(new Column("createdDate", "Created Date", 'left', (value) => value.toString()));
+        this.columns.push(new Column("createdDate", "Created Date", 'left', (value) => new Date(value).toDateString()));
     }
 
     componentDidMount()

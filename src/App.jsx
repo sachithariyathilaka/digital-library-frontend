@@ -5,8 +5,6 @@ import {Grid} from "@mui/material";
 import {SideBar} from "./component/side-bar";
 import BookTable from "./component/book-table";
 import Toolbar from "@mui/material/Toolbar";
-import Divider from "@mui/material/Divider";
-import {Footer} from "./component/footer";
 
 class App extends Component {
 
