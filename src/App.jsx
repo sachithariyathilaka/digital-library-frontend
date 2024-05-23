@@ -24,7 +24,6 @@ class App extends Component {
                 <Grid item xs={6.5}>
                     <Toolbar/>
                     <BookTable/>
-                    <Toolbar/>
                 </Grid>
                 <Grid item xs={4}>
                     <p></p>

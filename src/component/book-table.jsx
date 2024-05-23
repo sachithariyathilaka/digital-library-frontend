@@ -53,7 +53,7 @@ class BookTable extends Component {
 
     render(){
         return(
-            <TableContainer sx={{ maxHeight: window.innerHeight}} className = {'table'}>
+            <TableContainer className = {'table'}>
                 <Table stickyHeader aria-label="sticky table">
                     <TableHead>
                         <TableRow>

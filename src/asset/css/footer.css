@@ -1,5 +1,5 @@
 .footer {
     opacity: 0.4;
-    color: #212121;
+    color: var(--black);
     font-weight: 400
 }

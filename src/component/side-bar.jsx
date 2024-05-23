@@ -45,7 +45,7 @@ export class SideBar extends Component {
                     variant="permanent"
                     anchor="left">
                     <Toolbar>
-                        <img src={'logo192.png'} className = {"logo"} alt='Digital Library Logo'/>
+                        <img src={'images/logo/logo192.png'} className = {"logo"} alt='Digital Library Logo'/>
                         <Typography variant="h4" noWrap component="div">Digital Library</Typography>
                     </Toolbar>
                     <Divider />

@@ -1,16 +1,16 @@
 .table {
     margin-left: -5px !important;
-    height: 100vh !important;
+    max-height: calc(100vh - 72px) !important;
 }
 
 .table-header {
-    color: #212121 !important;
+    color: var(--black) !important;
     font-size: 14px !important;
     font-weight: 600 !important;
 }
 
 .table-data {
-    color: #212121 !important;
+    color: var(--black) !important;
     font-size: 14px !important;
     font-weight: 400 !important;
 }
