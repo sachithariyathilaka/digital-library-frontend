@@ -5,6 +5,7 @@ import {Grid} from "@mui/material";
 import {SideBar} from "./component/side-bar";
 import BookTable from "./component/book-table";
 import Toolbar from "@mui/material/Toolbar";
+import {EmptyView} from "./component/empty-view";
 
 class App extends Component {
 
@@ -26,7 +27,8 @@ class App extends Component {
                     <BookTable/>
                 </Grid>
                 <Grid item xs={4}>
-                    <p></p>
+                    <Toolbar/>
+                    <EmptyView/>
                 </Grid>
             </Grid>
         </div>
