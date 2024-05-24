@@ -5,4 +5,24 @@
     --blue-opacity: rgba(30, 125, 204, 0.15);
     --gray: #f6f6f6;
     --white: #ffffff;
+    --red: rgba(249, 50, 50, 1);
+    --red-opacity: rgba(249, 50, 50, 0.15);
+}
+
+.btn {
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    border-radius: 5px !important;
+    width: 100px !important;
+    margin-bottom: 15px !important;
+}
+
+.success-btn {
+    background: var(--blue-opacity) !important;
+    color: var(--blue) !important;
+}
+
+.danger-btn {
+    background: var(--red-opacity) !important;
+    color: var(--red) !important;
 }

@@ -6,11 +6,21 @@ import Toolbar from "@mui/material/Toolbar";
 import {Breadcrumbs, Button, Link} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import {ManageBook} from "./manage-book";
 
 export class Header extends Component {
 
-    addNewBook() {
-        alert('test')
+    constructor() {
+        super();
+        this.state = {
+            showDialog: false
+        }
+    }
+
+    addNewBook = () => {
+        this.setState({
+            showDialog: true
+        });
     }
 
     render() {
@@ -23,6 +33,7 @@ export class Header extends Component {
                     </Breadcrumbs>
                     <Box sx={{ flexGrow: 1 }} />
                     <Button variant="contained" className={'toolbar-btn'} onClick={this.addNewBook}>Add New Book</Button>
+                    {this.state.showDialog && <ManageBook/>}
                 </Toolbar>
             </AppBar>
         );

@@ -1,7 +1,7 @@
 import {Component} from "react";
 import {Column} from "../resource/column";
 import axios from "axios";
-import {loadBooksUrl} from "../resource/api-endpoints";
+import {baseurl} from "../resource/api-endpoints";
 import TableContainer from "@mui/material/TableContainer";
 import Table from "@mui/material/Table";
 import TableHead from "@mui/material/TableHead";
@@ -38,7 +38,7 @@ class BookTable extends Component {
     {
         this.setState({columns: this.loadColumns()})
 
-        axios.get(loadBooksUrl)
+        axios.get(baseurl)
             .then(res => {
                 let apiResponse = res.data;
                 if (apiResponse.code === 200)
