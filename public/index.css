@@ -26,3 +26,8 @@
     background: var(--red-opacity) !important;
     color: var(--red) !important;
 }
+
+.alert {
+    font-size: 14px !important;
+    color: white !important;
+}
