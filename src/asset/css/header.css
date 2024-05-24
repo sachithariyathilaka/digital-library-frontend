@@ -1,0 +1,16 @@
+.app-bar {
+    width: 87.5% !important;
+}
+
+.header-container {
+    background: var(--gray);
+}
+
+.breadcrumbs-text {
+    color: var(--black) !important;
+    font-size: 14px !important;
+}
+
+.toolbar-btn {
+    font-size: 14px !important;
+}
