@@ -28,8 +28,8 @@ export class Header extends Component {
             <AppBar position="fixed" className={'app-bar'}>
                 <Toolbar className = {'header-container'}>
                     <Breadcrumbs aria-label="breadcrumb">
-                        <Link underline="hover" color="inherit" href="/" className={'breadcrumbs-text'}>Digital Library</Link>
-                        <Typography color="text.primary" className={'breadcrumbs-text'}>Books</Typography>
+                        <Link underline="hover" color="inherit" href="/" className={'breadcrumbs-text app-text'}>Digital Library</Link>
+                        <Typography color="text.primary" className={'breadcrumbs-text page-text'}>Books</Typography>
                     </Breadcrumbs>
                     <Box sx={{ flexGrow: 1 }} />
                     <Button variant="contained" className={'toolbar-btn'} onClick={this.addNewBook}>Add New Book</Button>
