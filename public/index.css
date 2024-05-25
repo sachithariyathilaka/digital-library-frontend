@@ -4,6 +4,7 @@
     --blue: rgba(30, 125, 204, 1);
     --blue-opacity: rgba(30, 125, 204, 0.15);
     --gray: #f6f6f6;
+    --light-gray: rgba(237, 237, 237, 1);
     --white: #ffffff;
     --red: rgba(249, 50, 50, 1);
     --red-opacity: rgba(249, 50, 50, 0.15);
@@ -11,10 +12,11 @@
 
 .btn {
     font-weight: 600 !important;
-    font-size: 14px !important;
+    font-size: 16px !important;
     border-radius: 5px !important;
-    width: 100px !important;
+    width: 120px !important;
     margin-bottom: 15px !important;
+    text-transform: none !important;
 }
 
 .success-btn {
@@ -31,3 +33,32 @@
     font-size: 14px !important;
     color: white !important;
 }
+
+.MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+    border-radius: 10px !important;
+    border-color: var(--black-opacity);
+}
+
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-radius: 10px !important;
+    border-color: var(--blue) !important;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-radius: 10px !important;
+}
+
+.MuiInputBase-input {
+    font-size: 14px !important;
+    color: var(--black) !important;
+}
+
+.MuiInputLabel-root {
+    font-size: 14px !important;
+}
+
+.MuiPaper-root {
+    border-radius: 10px !important;
+    background: var(--gray) !important;
+}
+

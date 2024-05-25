@@ -81,7 +81,6 @@ export class ManageBook extends Component {
                             onChange={this.onChange}
                             type="text"
                             fullWidth
-                            variant="outlined"
                             error={this.isValidInput('title')}
                             helperText={ this.isValidInput('title') ? 'Book title is required!' : '' }
                         />

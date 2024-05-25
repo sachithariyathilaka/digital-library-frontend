@@ -57,7 +57,7 @@ export class SideBar extends Component {
                                     <ListItemIcon>
                                         <LibraryBooksIcon/>
                                     </ListItemIcon>
-                                    <ListItemText primary={text} />
+                                    <ListItemText className={'list-item-text'} primary={text} />
                                 </ListItemButton>
                             </ListItem>
                         ))}
