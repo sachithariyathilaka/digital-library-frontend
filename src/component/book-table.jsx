@@ -10,6 +10,8 @@ import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 import * as React from "react";
 import "../asset/css/book-table.css"
+import {Alert, Backdrop, CircularProgress} from "@mui/material";
+import Snackbar from "@mui/material/Snackbar";
 
 class BookTable extends Component {
 
@@ -18,7 +20,9 @@ class BookTable extends Component {
         super(props, context);
         this.state = {
             columns: [],
-            books: []
+            books: [],
+            loaded: false,
+            error: ''
         }
     }
 
@@ -44,7 +48,9 @@ class BookTable extends Component {
                 if (apiResponse.code === 200)
                     this.setState({books: apiResponse.data})
                 else
-                    alert(apiResponse.message)
+                    this.setState({error: apiResponse.message})
+
+                setTimeout(()=> {this.setState({loaded: true})}, 1000);
             })
             .catch(error => {
                 console.log(error)
@@ -53,36 +59,44 @@ class BookTable extends Component {
 
     render(){
         return(
-            <TableContainer className = {'table'}>
-                <Table stickyHeader aria-label="sticky table">
-                    <TableHead>
-                        <TableRow>
-                            {this.state.columns.map((column) => (
-                                <TableCell className = {'table-header'} key={column.id} align={column.align}>
-                                    {column.label}
-                                </TableCell>
-                            ))}
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {this.state.books
-                            .map((row) => {
-                                return (
-                                    <TableRow hover role="checkbox" tabIndex={-1} key={row._id}>
-                                        {this.state.columns.map((column) => {
-                                            const value = row[column.id];
-                                            return (
-                                                <TableCell className = {'table-data'} key={column.id} align={column.align}>
-                                                    {column.format && typeof value === 'number' ? column.format(value) : value}
-                                                </TableCell>
-                                            );
-                                        })}
-                                    </TableRow>
-                                );
-                            })}
-                    </TableBody>
-                </Table>
-            </TableContainer>
+            [
+                <TableContainer className = {'table'}>
+                    <Table stickyHeader aria-label="sticky table">
+                        <TableHead>
+                            <TableRow>
+                                {this.state.columns.map((column) => (
+                                    <TableCell className = {'table-header'} key={column.id} align={column.align}>
+                                        {column.label}
+                                    </TableCell>
+                                ))}
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {this.state.books
+                                .map((row) => {
+                                    return (
+                                        <TableRow hover role="checkbox" tabIndex={-1} key={row._id}>
+                                            {this.state.columns.map((column) => {
+                                                const value = row[column.id];
+                                                return (
+                                                    <TableCell className = {'table-data'} key={column.id} align={column.align}>
+                                                        {column.format && typeof value === 'number' ? column.format(value) : value}
+                                                    </TableCell>
+                                                );
+                                            })}
+                                        </TableRow>
+                                    );
+                                })}
+                        </TableBody>
+                    </Table>
+                </TableContainer>,
+                <Backdrop sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }} open={!this.state.loaded}>
+                    <CircularProgress color="inherit" size={75} />
+                </Backdrop>,
+                <Snackbar anchorOrigin= {{vertical: 'top', horizontal: 'center'}} open={this.state.error !== '' && !this.state.loaded}>
+                    <Alert className={'alert'} severity="error" variant="filled">{this.state.error}</Alert>
+                </Snackbar>
+            ]
         );
     }
 }

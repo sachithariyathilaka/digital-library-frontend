@@ -1,10 +1,20 @@
 import {Component} from "react";
 import * as React from "react";
-import "../asset/css/manage-book.css";
-import {Alert, Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField} from "@mui/material";
+import {
+    Alert,
+    Backdrop,
+    Button,
+    CircularProgress,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogTitle,
+    TextField
+} from "@mui/material";
 import axios from "axios";
 import Snackbar from '@mui/material/Snackbar';
 import {baseurl} from "../resource/api-endpoints";
+import "../asset/css/manage-book.css";
 
 export class ManageBook extends Component {
 
@@ -25,7 +35,8 @@ export class ManageBook extends Component {
             snackbar: {
                 type: '',
                 message: ''
-            }
+            },
+            loader: false
         }
     }
 
@@ -47,28 +58,43 @@ export class ManageBook extends Component {
     onSubmit = () => {
         this.setState({submitted: true})
 
-        axios.post(baseurl, this.state.formData)
-            .then(res => {
-                let apiResponse = res.data;
-                if (apiResponse.code === 200) {
-                    this.setState({snackbar: {message: apiResponse.message, type: 'success'}})
-                    this.closeDialog()
-                } else
-                    this.setState({snackbar: {message: apiResponse.message, type: 'error'}})
-            })
-            .catch(error => {
-                console.log(error)
-            });
+        if (this.validateRequest())
+        {
+            this.setState({loader: true, open: false})
+            axios.post(baseurl, this.state.formData)
+                .then(res => {
+                    let apiResponse = res.data;
+                    if (apiResponse.code === 200) {
+                        this.setState({snackbar: {message: apiResponse.message, type: 'success'}, loader: false})
+                        this.closeDialog()
+                    } else
+                        this.setState({snackbar: {message: apiResponse.message, type: 'error'}, loader: false})
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+        }
+
     }
 
     isValidInput = (id: string) => {
         return this.state.submitted && this.state.formData[id] === '';
     }
 
+    validateRequest = () => {
+        let isValid = true;
+        for (let key in this.state.formData)
+            if (this.state.formData[key] === '')
+                isValid = false;
+
+        return isValid;
+    }
+
     render() {
         return(
             [
-                this.state.open ? <Dialog open={this.state.open} onClose={this.closeDialog}>
+                this.state.open ?
+                <Dialog open={this.state.open} onClose={this.closeDialog} className={'dialog'}>
                     <DialogTitle className={'dialog-title'}>Add New Book</DialogTitle>
                     <DialogContent>
                         <TextField
@@ -162,6 +188,9 @@ export class ManageBook extends Component {
                         <Button variant="contained" className={'btn success-btn btn-group'} onClick={this.onSubmit}>Submit</Button>
                     </DialogActions>
                 </Dialog> : null,
+                <Backdrop sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1}} open={this.state.loader}>
+                    <CircularProgress color="inherit" size={75} />
+                </Backdrop>,
                 <Snackbar anchorOrigin= {{vertical: 'top', horizontal: 'center'}} open={this.state.snackbar.type !== ''}>
                     <Alert className={'alert'} severity={this.state.snackbar.type} variant="filled">{this.state.snackbar.message}</Alert>
                 </Snackbar>

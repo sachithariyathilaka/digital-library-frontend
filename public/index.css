@@ -31,7 +31,7 @@
 
 .alert {
     font-size: 14px !important;
-    color: white !important;
+    color: var(--white) !important;
 }
 
 .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
@@ -57,7 +57,7 @@
     font-size: 14px !important;
 }
 
-.MuiPaper-root {
+.dialog .MuiPaper-root {
     border-radius: 10px !important;
     background: var(--gray) !important;
 }
