@@ -16,4 +16,12 @@
 
 .list-item-text .MuiTypography-root {
     font-size: 14px !important;
+    font-weight: 600 !important;
+    margin-top: 1px !important;
+}
+
+.list-item-icon {
+    color: var(--black);
+    height: 20px;
+    width: auto;
 }

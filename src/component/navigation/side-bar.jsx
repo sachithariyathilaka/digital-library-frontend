@@ -13,6 +13,7 @@ import Typography from "@mui/material/Typography";
 import {Footer} from "../widget/footer";
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import "../../asset/css/navigation/side-bar.css"
+import {Book, Description} from "@mui/icons-material";
 
 export class SideBar extends Component {
 
@@ -55,7 +56,7 @@ export class SideBar extends Component {
                             <ListItem className = {'list-item'} key={text} disablePadding>
                                 <ListItemButton>
                                     <ListItemIcon>
-                                        <LibraryBooksIcon/>
+                                        <LibraryBooksIcon className={'list-item-icon'}/>
                                     </ListItemIcon>
                                     <ListItemText className={'list-item-text'} primary={text} />
                                 </ListItemButton>

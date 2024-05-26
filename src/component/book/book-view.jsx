@@ -5,12 +5,12 @@ import {Card, CardContent, Container, Grid} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import "../../asset/css/book/book-view.css";
 import {
+    Book,
     CalendarMonth,
     DateRange,
     Description,
     Flag,
     NumbersTwoTone,
-    Pages,
     Person, Storage
 } from "@mui/icons-material";
 
@@ -23,12 +23,12 @@ export class BookView extends Component {
             items: [
                 {
                     label: 'Title',
-                    icon: <Description className={'card-icon'}/>,
+                    icon: <Book className={'card-icon'}/>,
                     value: props.selectedBook.title
                 },
                 {
                     label: 'Description',
-                    icon: <Pages className={'card-icon'}/>,
+                    icon: <Description className={'card-icon'}/>,
                     value: props.selectedBook.description
                 },
                 {
@@ -76,13 +76,13 @@ export class BookView extends Component {
                                     <Card variant="outlined" className={'card'}>
                                         <CardContent className={'card-content'}>
                                             <Grid container>
-                                                <Grid item xs={0.6}>
+                                                <Grid item xs={0.5}>
                                                     {item.icon}
                                                 </Grid>
                                                 <Grid item xs={1.4}>
                                                     <Typography className={'card-text card-title'}>{item.label}</Typography>
                                                 </Grid>
-                                                <Grid item xs={10}>
+                                                <Grid item xs={10.1}>
                                                     <Typography className={'card-text card-value'}>{item.value}</Typography>
                                                 </Grid>
                                             </Grid>

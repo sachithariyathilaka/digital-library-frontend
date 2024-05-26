@@ -9,14 +9,14 @@
 }
 
 .card-icon {
-    height: 25px !important;
+    height: 20px !important;
     width: auto !important;
 }
 
 .card-text {
     font-size: 14px !important;
     color: var(--black) !important;
-    margin-top: 3px !important;
+    margin-top: 1px !important;
 }
 
 .card-title {
