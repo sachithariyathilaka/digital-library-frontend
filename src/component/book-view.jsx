@@ -4,10 +4,10 @@ import "../asset/css/book-view.css";
 import Box from "@mui/material/Box";
 import {Container} from "@mui/material";
 
-export class EmptyView extends Component {
+export class BookView extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
     }
 
     render() {
@@ -15,7 +15,7 @@ export class EmptyView extends Component {
             <Container fixed>
                 <Box className = {'view-container'}>
                     <Box className= {'data-container'}>
-                        <img src={'images/icon/no-data.svg'} alt='No Data'/>
+                        <img src={'images/logo/logo192.png'} alt='No Data'/>
                     </Box>
                 </Box>
             </Container>

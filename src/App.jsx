@@ -3,9 +3,8 @@ import {Component} from "react";
 import {Header} from "./component/header";
 import {Grid} from "@mui/material";
 import {SideBar} from "./component/side-bar";
-import BookTable from "./component/book-table";
+import BookPage from "./component/book-page";
 import Toolbar from "@mui/material/Toolbar";
-import {EmptyView} from "./component/empty-view";
 
 class App extends Component {
 
@@ -18,17 +17,13 @@ class App extends Component {
     return(
         <div>
             <Header/>
-            <Grid container sx ={{height: window.innerHeight - 50}}>
+            <Grid container>
                 <Grid item xs={1.5}>
                     <SideBar/>
                 </Grid>
-                <Grid item xs={6.5}>
+                <Grid item xs={10.5}>
                     <Toolbar/>
-                    <BookTable/>
-                </Grid>
-                <Grid item xs={4}>
-                    <Toolbar/>
-                    <EmptyView/>
+                    <BookPage/>
                 </Grid>
             </Grid>
         </div>
