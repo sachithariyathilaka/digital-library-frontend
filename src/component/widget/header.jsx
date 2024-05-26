@@ -1,12 +1,12 @@
 import {Component} from "react";
 import AppBar from "@mui/material/AppBar";
 import * as React from "react";
-import "../asset/css/header.css"
+import "../../asset/css/widget/header.css"
 import Toolbar from "@mui/material/Toolbar";
 import {Breadcrumbs, Button, Link} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import {ManageBook} from "./manage-book";
+import {ManageBook} from "../book/manage-book";
 import {AddCircle} from "@mui/icons-material";
 
 export class Header extends Component {

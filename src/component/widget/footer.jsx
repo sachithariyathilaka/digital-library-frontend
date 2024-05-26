@@ -2,7 +2,7 @@ import {Component} from "react";
 import * as React from "react";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import "../asset/css/footer.css";
+import "../../asset/css/widget/footer.css";
 
 export class Footer extends Component {
 

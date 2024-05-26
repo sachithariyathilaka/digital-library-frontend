@@ -1,7 +1,7 @@
 import {Component} from "react";
-import {Column} from "../resource/column";
+import {Column} from "../../resource/column";
 import axios from "axios";
-import {baseurl} from "../resource/api-endpoints";
+import {baseurl} from "../../resource/api-endpoints";
 import TableContainer from "@mui/material/TableContainer";
 import Table from "@mui/material/Table";
 import TableHead from "@mui/material/TableHead";
@@ -9,11 +9,11 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 import * as React from "react";
-import "../asset/css/book-page.css"
+import "../../asset/css/book/book-page.css"
 import {Alert, Backdrop, CircularProgress, Grid} from "@mui/material";
 import Snackbar from "@mui/material/Snackbar";
 import {BookView} from "./book-view";
-import {EmptyView} from "./empty-view";
+import {EmptyView} from "../widget/empty-view";
 
 class BookPage extends Component {
 

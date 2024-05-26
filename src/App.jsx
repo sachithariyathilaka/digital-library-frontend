@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {Component} from "react";
-import {Header} from "./component/header";
+import {Header} from "./component/widget/header";
 import {Grid} from "@mui/material";
-import {SideBar} from "./component/side-bar";
-import BookPage from "./component/book-page";
+import {SideBar} from "./component/navigation/side-bar";
+import BookPage from "./component/book/book-page";
 import Toolbar from "@mui/material/Toolbar";
 
 class App extends Component {

@@ -12,8 +12,8 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import Snackbar from '@mui/material/Snackbar';
-import {baseurl} from "../resource/api-endpoints";
-import "../asset/css/manage-book.css";
+import {baseurl} from "../../resource/api-endpoints";
+import "../../asset/css/book/manage-book.css";
 
 export class ManageBook extends Component {
 

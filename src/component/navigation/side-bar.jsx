@@ -10,9 +10,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import {Component} from "react";
 import Typography from "@mui/material/Typography";
-import {Footer} from "./footer";
+import {Footer} from "../widget/footer";
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
-import "../asset/css/side-bar.css"
+import "../../asset/css/navigation/side-bar.css"
 
 export class SideBar extends Component {
 
