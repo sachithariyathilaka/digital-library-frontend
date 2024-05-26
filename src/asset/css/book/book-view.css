@@ -1,3 +1,28 @@
-.data-container img {
-    max-width: 100%;
+.card {
+    border-radius: 10px !important;
+    background: var(--blue-opacity) !important;
+    margin-bottom: 15px;
+}
+
+.card-content {
+    padding: 15px !important;
+}
+
+.card-icon {
+    height: 25px !important;
+    width: auto !important;
+}
+
+.card-text {
+    font-size: 14px !important;
+    color: var(--black) !important;
+    margin-top: 3px !important;
+}
+
+.card-title {
+    font-weight: 600 !important;
+}
+
+.card-value {
+    font-weight: 400 !important;
 }

@@ -1,5 +1,4 @@
 import {Component} from "react";
-import {Column} from "../../resource/column";
 import axios from "axios";
 import {baseurl} from "../../resource/api-endpoints";
 import TableContainer from "@mui/material/TableContainer";
@@ -21,7 +20,38 @@ class BookPage extends Component {
     {
         super(props, context);
         this.state = {
-            columns: [],
+            columns: [
+                {
+                    id: 'title',
+                    label: 'Title',
+                    format: (value) => value.toLocaleString('en-US')
+                },
+                {
+                    id: 'author',
+                    label: 'Author',
+                    format: (value) => value.toLocaleString('en-US')
+                },
+                {
+                    id: 'origin',
+                    label: 'Origin',
+                    format: (value) => value.toLocaleString('en-US')
+                },
+                {
+                    id: 'quantity',
+                    label: 'Quantity',
+                    format: (value) => value.toLocaleString('en-US')
+                },
+                {
+                    id: 'version',
+                    label: 'Version',
+                    format: (value) => value.toLocaleString('en-US')
+                },
+                {
+                    id: 'createdDate',
+                    label: 'Created Date',
+                    format: (value) => new Date(value).toDateString()
+                }
+            ],
             books: [],
             loaded: false,
             error: '',
@@ -29,22 +59,7 @@ class BookPage extends Component {
         }
     }
 
-    loadColumns() {
-        let columns = [];
-        columns.push(new Column("title", "Title", (value) => value.toLocaleString('en-US')));
-        columns.push(new Column("author", "Author", (value) => value.toLocaleString('en-US')));
-        columns.push(new Column("origin", "Origin", (value) => value.toLocaleString('en-US')));
-        columns.push(new Column("quantity", "Quantity", (value) => value.toLocaleString('en-US')));
-        columns.push(new Column("version", "Version", (value) => value.toLocaleString('en-US')));
-        columns.push(new Column("createdDate", "Created Date", (value) => new Date(value).toDateString()));
-
-        return columns;
-    }
-
-    componentDidMount()
-    {
-        this.setState({columns: this.loadColumns()})
-
+    componentDidMount() {
         axios.get(baseurl)
             .then(res => {
                 let apiResponse = res.data;

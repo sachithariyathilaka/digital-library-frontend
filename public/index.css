@@ -72,9 +72,6 @@
 }
 
 .data-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border-radius: 10px;
     background: var(--gray);
     height: calc(99vh - 95px);
