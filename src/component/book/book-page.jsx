@@ -31,12 +31,12 @@ class BookPage extends Component {
 
     loadColumns() {
         let columns = [];
-        columns.push(new Column("title", "Title", 'left', (value) => value.toLocaleString('en-US')));
-        columns.push(new Column("author", "Author", 'left', (value) => value.toLocaleString('en-US')));
-        columns.push(new Column("origin", "Origin", 'left', (value) => value.toLocaleString('en-US')));
-        columns.push(new Column("quantity", "Quantity", 'left', (value) => value.toLocaleString('en-US')));
-        columns.push(new Column("version", "Version", 'left', (value) => value.toLocaleString('en-US')));
-        columns.push(new Column("createdDate", "Created Date", 'left', (value) => new Date(value).toDateString()));
+        columns.push(new Column("title", "Title", (value) => value.toLocaleString('en-US')));
+        columns.push(new Column("author", "Author", (value) => value.toLocaleString('en-US')));
+        columns.push(new Column("origin", "Origin", (value) => value.toLocaleString('en-US')));
+        columns.push(new Column("quantity", "Quantity", (value) => value.toLocaleString('en-US')));
+        columns.push(new Column("version", "Version", (value) => value.toLocaleString('en-US')));
+        columns.push(new Column("createdDate", "Created Date", (value) => new Date(value).toDateString()));
 
         return columns;
     }
@@ -73,7 +73,7 @@ class BookPage extends Component {
                             <TableHead>
                                 <TableRow>
                                     {this.state.columns.map((column) => (
-                                        <TableCell className = {'table-header'} key={column.id} align={column.align}>
+                                        <TableCell className = {'table-header'} key={column.id} align='left'>
                                             {column.label}
                                         </TableCell>
                                     ))}
@@ -87,7 +87,7 @@ class BookPage extends Component {
                                                 {this.state.columns.map((column) => {
                                                     const value = row[column.id];
                                                     return (
-                                                        <TableCell className = {'table-data'} key={column.id} align={column.align}>
+                                                        <TableCell className = {'table-data'} key={column.id} align='align'>
                                                             {column.format && typeof value === 'number' ? column.format(value) : value}
                                                         </TableCell>
                                                     );
