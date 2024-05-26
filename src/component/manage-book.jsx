@@ -2,7 +2,6 @@ import {Component} from "react";
 import * as React from "react";
 import {
     Alert,
-    Backdrop,
     Button,
     CircularProgress,
     Dialog,
@@ -60,15 +59,15 @@ export class ManageBook extends Component {
 
         if (this.validateRequest())
         {
-            this.setState({loader: true, open: false})
+            this.setState({loader: true})
             axios.post(baseurl, this.state.formData)
                 .then(res => {
                     let apiResponse = res.data;
                     if (apiResponse.code === 200) {
-                        this.setState({snackbar: {message: apiResponse.message, type: 'success'}, loader: false})
+                        this.setState({snackbar: {message: apiResponse.message, type: 'success'}, loader: false, open: false})
                         this.closeDialog()
                     } else
-                        this.setState({snackbar: {message: apiResponse.message, type: 'error'}, loader: false})
+                        this.setState({snackbar: {message: apiResponse.message, type: 'error'}, loader: false, open: false})
                 })
                 .catch(error => {
                     console.log(error)
@@ -185,12 +184,12 @@ export class ManageBook extends Component {
                     </DialogContent>
                     <DialogActions>
                         <Button variant="contained" className={'btn danger-btn'} onClick={this.closeDialog}>Cancel</Button>
-                        <Button variant="contained" className={'btn success-btn btn-group'} onClick={this.onSubmit}>Submit</Button>
+                        {!this.state.loader ?
+                        <Button variant="contained" className={'btn success-btn btn-group'} onClick={this.onSubmit}>Submit</Button> :
+                        <Button variant="contained" className={'btn success-btn btn-group'} onClick={this.onSubmit}><CircularProgress size={30}/></Button>
+                        }
                     </DialogActions>
                 </Dialog> : null,
-                <Backdrop sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1}} open={this.state.loader}>
-                    <CircularProgress color="inherit" size={75} />
-                </Backdrop>,
                 <Snackbar anchorOrigin= {{vertical: 'top', horizontal: 'center'}} open={this.state.snackbar.type !== ''}>
                     <Alert className={'alert'} severity={this.state.snackbar.type} variant="filled">{this.state.snackbar.message}</Alert>
                 </Snackbar>

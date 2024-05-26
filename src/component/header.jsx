@@ -7,6 +7,7 @@ import {Breadcrumbs, Button, Link} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import {ManageBook} from "./manage-book";
+import {AddCircle, AddIcCall} from "@mui/icons-material";
 
 export class Header extends Component {
 
@@ -32,7 +33,7 @@ export class Header extends Component {
                         <Typography color="text.primary" className={'breadcrumbs-text page-text'}>Books</Typography>
                     </Breadcrumbs>
                     <Box sx={{ flexGrow: 1 }} />
-                    <Button variant="contained" className={'toolbar-btn'} onClick={this.addNewBook}>Add New Book</Button>
+                    <Button variant="contained" className={'toolbar-btn'} onClick={this.addNewBook}>{<AddCircle sx={{marginRight: '10px'}}/>}New Book</Button>
                     {this.state.showDialog && <ManageBook/>}
                 </Toolbar>
             </AppBar>
