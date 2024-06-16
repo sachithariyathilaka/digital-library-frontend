@@ -1,5 +1,5 @@
 .app-bar {
-    width: 87.5% !important;
+    width: 84% !important;
 }
 
 .header-container {
@@ -8,7 +8,7 @@
 
 .breadcrumbs-text {
     color: var(--black) !important;
-    font-size: 16px !important;
+    font-size: 14px !important;
 }
 
 .app-text {
@@ -20,5 +20,5 @@
 }
 
 .toolbar-btn {
-    font-size: 14px !important;
+    font-size: 12px !important;
 }
