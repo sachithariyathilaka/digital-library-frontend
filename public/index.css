@@ -12,9 +12,9 @@
 
 .btn {
     font-weight: 600 !important;
-    font-size: 16px !important;
+    font-size: 12px !important;
     border-radius: 5px !important;
-    width: 120px !important;
+    width: 80px !important;
     margin-bottom: 15px !important;
     text-transform: none !important;
 }
@@ -30,7 +30,7 @@
 }
 
 .alert {
-    font-size: 14px !important;
+    font-size: 12px !important;
     color: var(--white) !important;
 }
 
@@ -49,12 +49,12 @@
 }
 
 .MuiInputBase-input {
-    font-size: 14px !important;
+    font-size: 12px !important;
     color: var(--black) !important;
 }
 
 .MuiInputLabel-root {
-    font-size: 14px !important;
+    font-size: 12px !important;
 }
 
 .dialog .MuiPaper-root {

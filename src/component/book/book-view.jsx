@@ -18,7 +18,6 @@ export class BookView extends Component {
 
     constructor(props) {
         super(props);
-        console.log(props)
 
         this.state = {
             items: [

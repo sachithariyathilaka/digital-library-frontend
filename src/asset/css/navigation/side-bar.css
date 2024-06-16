@@ -15,13 +15,13 @@
 }
 
 .list-item-text .MuiTypography-root {
-    font-size: 14px !important;
+    font-size: 12px !important;
     font-weight: 600 !important;
     margin-top: 1px !important;
 }
 
 .list-item-icon {
     color: var(--black);
-    height: 20px !important;
+    height: 18px !important;
     width: auto !important;
 }

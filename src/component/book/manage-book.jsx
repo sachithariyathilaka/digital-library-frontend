@@ -186,7 +186,7 @@ export class ManageBook extends Component {
                         <Button variant="contained" className={'btn danger-btn'} onClick={this.closeDialog}>Cancel</Button>
                         {!this.state.loader ?
                         <Button variant="contained" className={'btn success-btn btn-group'} onClick={this.onSubmit}>Submit</Button> :
-                        <Button variant="contained" className={'btn success-btn btn-group'} onClick={this.onSubmit}><CircularProgress size={30}/></Button>
+                        <Button variant="contained" className={'btn success-btn btn-group'} onClick={this.onSubmit}><CircularProgress size={20}/></Button>
                         }
                     </DialogActions>
                 </Dialog> : null,
