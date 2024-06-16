@@ -55,7 +55,8 @@ class BookPage extends Component {
             books: [],
             loaded: false,
             error: '',
-            selectedRow: ''
+            selectedRow: '',
+            viewCount: 0
         }
     }
 
@@ -76,7 +77,10 @@ class BookPage extends Component {
     }
 
     onSelectRow = (row) => {
-        this.setState({selectedRow: row})
+        this.setState({selectedRow: ''});
+
+        setTimeout(() => {this.setState({selectedRow: row})}, 1);
+
     }
 
     render(){
@@ -114,7 +118,7 @@ class BookPage extends Component {
                         </Table>
                     </TableContainer>,
                     <Backdrop sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }} open={!this.state.loaded}>
-                        <CircularProgress color="inherit" size={75} />
+                        <CircularProgress color="inherit" size={50} />
                     </Backdrop>,
                     <Snackbar anchorOrigin= {{vertical: 'top', horizontal: 'center'}} open={this.state.error !== '' && !this.state.loaded}>
                         <Alert className={'alert'} severity="error" variant="filled">{this.state.error}</Alert>
