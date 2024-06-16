@@ -18,6 +18,7 @@ export class BookView extends Component {
 
     constructor(props) {
         super(props);
+        console.log(props)
 
         this.state = {
             items: [
@@ -79,10 +80,10 @@ export class BookView extends Component {
                                                 <Grid item xs={0.5}>
                                                     {item.icon}
                                                 </Grid>
-                                                <Grid item xs={1.4}>
+                                                <Grid item xs={1.75}>
                                                     <Typography className={'card-text card-title'}>{item.label}</Typography>
                                                 </Grid>
-                                                <Grid item xs={10.1}>
+                                                <Grid item xs={9.75}>
                                                     <Typography className={'card-text card-value'}>{item.value}</Typography>
                                                 </Grid>
                                             </Grid>

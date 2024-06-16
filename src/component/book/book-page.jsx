@@ -102,7 +102,7 @@ class BookPage extends Component {
                                                 {this.state.columns.map((column) => {
                                                     const value = row[column.id];
                                                     return (
-                                                        <TableCell className = {'table-data'} key={column.id} align='align'>
+                                                        <TableCell className = {'table-data'} key={column.id + row._id} align='left'>
                                                             {column.format && typeof value === 'number' ? column.format(value) : value}
                                                         </TableCell>
                                                     );
@@ -121,7 +121,7 @@ class BookPage extends Component {
                     </Snackbar>
                 </Grid>
                 <Grid item xs={24/5}>
-                    {this.state.selectedRow === '' ? <EmptyView/> :  <BookView selectedBook = {this.state.selectedRow}/>}
+                    {this.state.selectedRow === '' ? <EmptyView/> : <BookView selectedBook = {this.state.selectedRow}/>}
                 </Grid>
             </Grid>
         );
