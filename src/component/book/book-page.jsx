@@ -82,7 +82,7 @@ class BookPage extends Component {
     render(){
         return(
             <Grid container className={'table'}>
-                <Grid item xs={6.5/10.5 * 12}>
+                <Grid item xs={36/5}>
                     <TableContainer className = {'table'}>
                         <Table stickyHeader aria-label="sticky table">
                             <TableHead>
@@ -120,7 +120,7 @@ class BookPage extends Component {
                         <Alert className={'alert'} severity="error" variant="filled">{this.state.error}</Alert>
                     </Snackbar>
                 </Grid>
-                <Grid item xs={4/10.5 * 12}>
+                <Grid item xs={24/5}>
                     {this.state.selectedRow === '' ? <EmptyView/> :  <BookView selectedBook = {this.state.selectedRow}/>}
                 </Grid>
             </Grid>

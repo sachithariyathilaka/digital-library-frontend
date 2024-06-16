@@ -64,7 +64,7 @@
 
 .view-container {
     margin-left: -30px;
-    margin-right: -30px;
+    margin-right: -35px;
     border-left: 1px solid var(--black-opacity);
     background: var(--white);
     height: calc(99vh - 95px);
