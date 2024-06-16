@@ -9,7 +9,7 @@ export class Footer extends Component {
     render() {
         return(
             <Toolbar>
-                <Typography className = 'footer' variant = "p" noWrap component = "div"> Developed By ByteGen Technologies @ 2024</Typography>
+                <Typography className = 'footer' variant = "p" noWrap component = "div">Developed By ByteGen Technologies @ 2024</Typography>
             </Toolbar>
         );
     }

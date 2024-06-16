@@ -18,10 +18,10 @@ class App extends Component {
         <div>
             <Header/>
             <Grid container>
-                <Grid item xs={1.5}>
+                <Grid item xs={2}>
                     <SideBar/>
                 </Grid>
-                <Grid item xs={10.5}>
+                <Grid item xs={10}>
                     <Toolbar/>
                     <BookPage/>
                 </Grid>

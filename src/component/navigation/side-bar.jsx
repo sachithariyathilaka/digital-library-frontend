@@ -36,10 +36,10 @@ export class SideBar extends Component {
             <Box className = {'box'}>
                 <Drawer
                     sx = {{
-                        width: window.innerWidth * 1.5/12,
+                        width: window.innerWidth / 6,
                         flexShrink: 0,
                         '& .MuiDrawer-paper': {
-                            width: window.innerWidth * 1.5/12,
+                            width: window.innerWidth / 6,
                             boxSizing: 'border-box',
                         },
                     }}
@@ -47,7 +47,7 @@ export class SideBar extends Component {
                     anchor="left">
                     <Toolbar>
                         <img src={'images/logo/logo192.png'} className = {"logo"} alt='Digital Library Logo'/>
-                        <Typography variant="h4" noWrap component="div">Digital Library</Typography>
+                        <Typography variant="h6" noWrap component="div">Digital Library</Typography>
                     </Toolbar>
                     <Divider />
                     <List sx = {{height: window.innerHeight - 80}}>
