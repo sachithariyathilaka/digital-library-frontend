@@ -17,18 +17,19 @@ import "../../asset/css/book/manage-book.css";
 
 export class ManageBook extends Component {
 
-    constructor()
+    constructor(props)
     {
         super();
         this.state = {
             open: true,
+            selectedBook: props.selectedBook,
             formData: {
-                title: '',
-                description: '',
-                year: '',
-                origin: '',
-                author: '',
-                quantity: ''
+                title: props.selectedBook != null ? props.selectedBook.title : '',
+                description: props.selectedBook != null ? props.selectedBook.description : '',
+                year: props.selectedBook != null ? props.selectedBook.year : '',
+                origin: props.selectedBook != null ? props.selectedBook.origin : '',
+                author: props.selectedBook != null ? props.selectedBook.author : '',
+                quantity: props.selectedBook != null ? props.selectedBook.quantity : ''
             },
             submitted: false,
             snackbar: {
@@ -59,19 +60,40 @@ export class ManageBook extends Component {
         if (this.validateRequest())
         {
             this.setState({loader: true})
-            axios.post(baseurl, this.state.formData)
-                .then(res => {
-                    let apiResponse = res.data;
-                    if (apiResponse.code === 200) {
-                        this.setState({snackbar: {message: apiResponse.message, type: 'success'}, loader: false, open: false})
-                        this.closeDialog()
-                        setTimeout(() => {window.location.reload()}, 1)
-                    } else
-                        this.setState({snackbar: {message: apiResponse.message, type: 'error'}, loader: false, open: false})
-                })
-                .catch(error => {
-                    console.log(error)
-                });
+
+            if (this.state.selectedBook == null)
+                axios.post(baseurl, this.state.formData)
+                    .then(res => {
+                        let apiResponse = res.data;
+                        if (apiResponse.code === 200) {
+                            this.setState({snackbar: {message: apiResponse.message, type: 'success'}, loader: false, open: false})
+                            this.closeDialog()
+                            setTimeout(() => {window.location.reload()}, 1)
+                        } else
+                            this.setState({snackbar: {message: apiResponse.message, type: 'error'}, loader: false, open: false})
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    });
+            else
+            {
+                let bookRequest = this.state.formData
+                bookRequest.version = this.state.selectedBook.version
+
+                axios.put(baseurl + "?id=" + this.state.selectedBook._id, bookRequest)
+                    .then(res => {
+                        let apiResponse = res.data;
+                        if (apiResponse.code === 200) {
+                            this.setState({snackbar: {message: apiResponse.message, type: 'success'}, loader: false, open: false})
+                            this.closeDialog()
+                            setTimeout(() => {window.location.reload()}, 1)
+                        } else
+                            this.setState({snackbar: {message: apiResponse.message, type: 'error'}, loader: false, open: false})
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    });
+            }
         }
 
     }
@@ -94,7 +116,7 @@ export class ManageBook extends Component {
             [
                 this.state.open ?
                 <Dialog open={this.state.open} onClose={this.closeDialog} className={'dialog'}>
-                    <DialogTitle className={'dialog-title'}>Add New Book</DialogTitle>
+                    <DialogTitle className={'dialog-title'}>Manage Book</DialogTitle>
                     <DialogContent>
                         <TextField
                             autoFocus

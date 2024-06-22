@@ -28,6 +28,7 @@ import {
 import axios from "axios";
 import {baseurl} from "../../resource/api-endpoints";
 import Snackbar from "@mui/material/Snackbar";
+import {ManageBook} from "./manage-book";
 
 export class BookView extends Component {
 
@@ -83,7 +84,8 @@ export class BookView extends Component {
                 type: '',
                 message: ''
             },
-            loader: false
+            loader: false,
+            manageDialog: false
         }
     }
 
@@ -113,6 +115,10 @@ export class BookView extends Component {
             });
     }
 
+    updateBook = () => {
+        this.setState({manageDialog: true})
+    }
+
     render() {
         return(
             <Container>
@@ -139,7 +145,7 @@ export class BookView extends Component {
                         </Box>
                         <Box className="action-container">
                             <Button variant="contained" className="btn danger-btn" onClick={this.deleteBook}>Delete</Button>
-                            <Button variant="contained" className="btn success-btn update-btn" onClick={this.onSubmit}>Update</Button>
+                            <Button variant="contained" className="btn success-btn update-btn" onClick={this.updateBook}>Update</Button>
                         </Box>
                     </Box>
                 </Box>
@@ -159,6 +165,7 @@ export class BookView extends Component {
                 <Snackbar anchorOrigin= {{vertical: 'top', horizontal: 'center'}} open={this.state.snackbar.type !== ''}>
                     <Alert className={'alert'} severity={this.state.snackbar.type} variant="filled">{this.state.snackbar.message}</Alert>
                 </Snackbar>
+                {this.state.manageDialog && <ManageBook selectedBook ={this.state.selectedBook}/>}
             </Container>
         );
     }

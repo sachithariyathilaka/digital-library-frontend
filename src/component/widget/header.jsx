@@ -34,7 +34,7 @@ export class Header extends Component {
                     </Breadcrumbs>
                     <Box sx={{ flexGrow: 1 }} />
                     <Button variant="contained" className={'toolbar-btn'} onClick={this.addNewBook}>{<AddCircle sx={{marginRight: '10px', height: '18px', width: 'auto'}}/>}Book</Button>
-                    {this.state.showDialog && <ManageBook/>}
+                    {this.state.showDialog && <ManageBook selectedBook ={null}/>}
                 </Toolbar>
             </AppBar>
         );
