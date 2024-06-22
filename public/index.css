@@ -10,6 +10,11 @@
     --red-opacity: rgba(249, 50, 50, 0.15);
 }
 
+.icon {
+    height: 18px !important;
+    width: auto !important;
+}
+
 .btn {
     font-weight: 600 !important;
     font-size: 12px !important;
@@ -69,11 +74,18 @@
     background: var(--white);
     height: calc(99vh - 95px);
     padding: 15px;
+    display: flex;
+    flex-direction: column;
 }
 
 .data-container {
     border-radius: 10px;
     background: var(--gray);
     height: calc(99vh - 95px);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px;
 }
 

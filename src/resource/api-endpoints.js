@@ -1,1 +1,1 @@
-export const baseurl = `https://fa5xpur6qlbxgj3khfvfrarxxq0jiwem.lambda-url.eu-north-1.on.aws/`;
+export const baseurl = `https://usatdeqsdgozat4xs6iwsmjlxq0vmtga.lambda-url.eu-north-1.on.aws/`;

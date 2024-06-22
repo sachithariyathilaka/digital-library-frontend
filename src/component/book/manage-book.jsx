@@ -41,7 +41,6 @@ export class ManageBook extends Component {
 
     closeDialog = () => {
         this.setState({open: false})
-        setTimeout(() => {window.location.reload()}, 1500)
     }
 
     onChange = (event) => {
@@ -66,6 +65,7 @@ export class ManageBook extends Component {
                     if (apiResponse.code === 200) {
                         this.setState({snackbar: {message: apiResponse.message, type: 'success'}, loader: false, open: false})
                         this.closeDialog()
+                        setTimeout(() => {window.location.reload()}, 1)
                     } else
                         this.setState({snackbar: {message: apiResponse.message, type: 'error'}, loader: false, open: false})
                 })
@@ -186,8 +186,7 @@ export class ManageBook extends Component {
                         <Button variant="contained" className={'btn danger-btn'} onClick={this.closeDialog}>Cancel</Button>
                         {!this.state.loader ?
                         <Button variant="contained" className={'btn success-btn btn-group'} onClick={this.onSubmit}>Submit</Button> :
-                        <Button variant="contained" className={'btn success-btn btn-group'} onClick={this.onSubmit}><CircularProgress size={20}/></Button>
-                        }
+                        <Button variant="contained" className={'btn success-btn btn-group'}><CircularProgress size={20}/></Button>}
                     </DialogActions>
                 </Dialog> : null,
                 <Snackbar anchorOrigin= {{vertical: 'top', horizontal: 'center'}} open={this.state.snackbar.type !== ''}>

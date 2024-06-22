@@ -26,3 +26,20 @@
 .card-value {
     font-weight: 400 !important;
 }
+
+.update-btn {
+    margin-left: 10px !important;
+}
+
+.action-container {
+    float: right !important;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+    margin-bottom: -15px;
+}
+
+.confirm-text {
+    font-size: 12px !important;
+
+}
