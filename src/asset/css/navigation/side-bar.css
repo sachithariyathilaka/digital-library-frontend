@@ -1,0 +1,27 @@
+.box {
+    display: flex;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    margin-right: 15px
+}
+
+.list-item {
+    background: var(--blue-opacity);
+    border-left: 5px solid var(--blue);
+    margin-top: -5px;
+}
+
+.list-item-text .MuiTypography-root {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    margin-top: 1px !important;
+}
+
+.list-item-icon {
+    color: var(--black);
+    height: 18px !important;
+    width: auto !important;
+}
