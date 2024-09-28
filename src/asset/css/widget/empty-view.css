@@ -1,9 +1,0 @@
-.empty-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.empty-container img {
-    max-width: 100%;
-}

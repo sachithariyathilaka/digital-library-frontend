@@ -8,10 +8,11 @@ React JS application for maintain the books of the library.
   * Material UI 5.5.17
   * Material Icon 5.5.17
   * Axios 1.6.8
+  * TypeScript 4.9.5
   
 * ### Release Note
   * Release 1.0.0
-  * Date: 2024/05/24
+  * Date: 2024/09/28
   * Module: Digital Library Frontend
   * Changes
     * Fetch all books function implemented.
